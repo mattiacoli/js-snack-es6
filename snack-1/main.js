@@ -37,25 +37,21 @@ const bici = [
   }
 ]
 
-// create empty array for weigh property
-let arrPesoBici =[];
 
-// get a function to find lower value in an array
-function getMinOfArray(numArray) {
-  return Math.min.apply(null, numArray);
-}
-
-// for loop to push weight of single bycicle in the array 
+let biciLeggera = bici[0]
 for (let i = 0; i < bici.length; i++) {
-  const bicicletta = bici[i];
-  arrPesoBici.push( bicicletta["peso-kg"])  
-}
 
-// call back function to find lower value in arrPesoBici
-const pesoMinore = getMinOfArray(arrPesoBici)
-// log result
-console.log(arrPesoBici);
-console.log(pesoMinore);
+  if (bici[i]["peso-kg"] < biciLeggera['peso-kg']) {
+    biciLeggera = bici[i]
+  }
+
+}
+console.log(biciLeggera);
+
+
+const divEl = document.querySelector('.lighter-cycle')
+
+divEl.innerHTML = `la ${biciLeggera.nome} pesa ${biciLeggera['peso-kg']}kg  ed e' la piu' leggera ` 
 
 
 
